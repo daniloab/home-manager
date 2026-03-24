@@ -6,7 +6,15 @@
 
     lfs.enable = true;
 
-    # renamed from userName / userEmail / aliases / extraConfig → settings.*
+    delta = {
+      enable = true;
+      options = {
+        navigate = true;
+        side-by-side = true;
+        line-numbers = true;
+      };
+    };
+
     settings = {
       user.name = "daniloab";
       user.email = "daniloassis.ti@gmail.com";

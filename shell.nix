@@ -496,8 +496,6 @@ in
       export CLICOLOR=1
       export LSCOLORS=ExFxBxDxCxegedabagacad
 
-      # ── FZF ──
-      source <(fzf --zsh)
     '';
   };
 }
