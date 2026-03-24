@@ -6,6 +6,7 @@
     ./packages.nix
     ./git.nix
     ./gh.nix
+    ./tmux.nix
   ];
 
   home.username = "daniloassis";
