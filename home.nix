@@ -7,6 +7,7 @@
     ./git.nix
     ./gh.nix
     ./tmux.nix
+    ./lazygit.nix
   ];
 
   home.username = "daniloassis";
