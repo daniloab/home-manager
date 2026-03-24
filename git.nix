@@ -6,14 +6,7 @@
 
     lfs.enable = true;
 
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        side-by-side = true;
-        line-numbers = true;
-      };
-    };
+    signing.format = null;
 
     settings = {
       user.name = "daniloab";
@@ -52,5 +45,15 @@
     ignores = [
       "**/.claude/settings.local.json"
     ];
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      side-by-side = true;
+      line-numbers = true;
+    };
   };
 }

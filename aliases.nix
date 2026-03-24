@@ -52,8 +52,8 @@
   cat = "bat";
 
   # Nix
-  ns  = "darwin-rebuild switch --flake ~/home-manager#Danilos-MacBook-Pro";
-  nb  = "darwin-rebuild build --flake ~/home-manager#Danilos-MacBook-Pro";
-  nrb = "darwin-rebuild rollback";
+  ns  = "sudo darwin-rebuild switch --flake ~/home-manager#Danilos-MacBook-Pro";
+  nb  = "sudo darwin-rebuild build --flake ~/home-manager#Danilos-MacBook-Pro";
+  nrb = "sudo darwin-rebuild rollback";
   nup = "nix flake update ~/home-manager";
 }

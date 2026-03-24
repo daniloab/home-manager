@@ -54,6 +54,7 @@
       "gstreamer-runtime"
       "lens"
       "ngrok"
+      "orbstack"
       "react-native-debugger"
       "slack"
       "spotify"
