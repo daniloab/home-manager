@@ -40,6 +40,7 @@
       "pyenv" # Python version manager
       "render-oss/render/render"
       "schpet/tap/linear"
+      "supabase"
     ];
 
     # GUI apps (.app)

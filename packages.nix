@@ -72,7 +72,7 @@
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
-    options = [ "--cmd=j" ]; # j replaces autojump: j foo, ji foo (interactive)
+    options = [ "--cmd=cd" ]; # overrides cd with zoxide: cd foo, cdi foo (interactive)
   };
 
   programs.starship = {
