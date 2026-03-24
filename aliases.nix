@@ -11,11 +11,17 @@
   term = "open -a Terminal $(pwd)";
 
   # Git
-  gpprod = "git pull origin prod";
+  gc = "git clone";
+  gcim = "git commit -m";
+  gcoma = "git checkout main";
   gcoprod = "git co prod";
-  gpsprod = "git push origin";
+  gcos = "git checkout staging";
   gpcf = "gh pr create --fill";
   ghpm = "gh pr merge";
+  gpoma = "git pull origin main";
+  gpos = "git pull origin staging";
+  gpprod = "git pull origin prod";
+  gpsprod = "git push origin";
 
   # Node/Test
   npr = "npm run test";
