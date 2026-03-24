@@ -17,10 +17,12 @@
   # System packages (available to all users)
   environment.systemPackages = with pkgs; [
     vim
+    pam-reattach
   ];
 
   # Enable Touch ID for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local.reattach = true;
 
   # macOS system defaults
   system.defaults = {
