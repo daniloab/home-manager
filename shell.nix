@@ -1,48 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  sharedAliases = {
-    pip = "pip3";
-    python = "python3";
-    iarn = "yarn";
-    tsxw = "tsx watch";
-    term = "open -a Terminal $(pwd)";
-
-    # Git
-    gpprod = "git pull origin prod";
-    gcoprod = "git co prod";
-    gpsprod = "git push origin";
-    gpcf = "gh pr create --fill";
-    ghpm = "gh pr merge";
-
-    # Node/Test
-    npr = "npm run test";
-    npru = "npm run test:u";
-
-    # Claude
-    ca = "claude --agentic";
-    cstd = "claude --dangerously-skip-permissions";
-
-    # Make shortcuts
-    mkdl = "make dev ENV=local";
-    mkd = "make dev";
-    mks = "make setup";
-
-    # Umbrella
-    umbrella = "lsof -ti:3333 | xargs kill 2>/dev/null; cd ~/umbrella-panel && uv run umbrella &>/dev/null & sleep 0.5 && open http://localhost:3333";
-
-    # Zsh/shell helpers
-    szsh = "source ~/.zshrc";
-    ezsh = "vim ~/.zshrc";
-    ealias = "vim ~/.config/home-manager/shell.nix";
-
-    # Bash profile extras
-    clean_branches = "git branch --merged | grep -v '*' | grep -v master | xargs -n 1 git branch -D";
-
-    # Modern CLI replacements
-    ls = "eza -lag";
-    cat = "bat";
-  };
+  sharedAliases = import ./aliases.nix;
 
   sharedInitExtra = ''
     # ── Git user ──
