@@ -11,12 +11,16 @@
       "homebrew/homebrew-cask" = homebrew-cask;
       "homebrew/homebrew-bundle" = homebrew-bundle;
     };
-    mutableTaps = false;
+    mutableTaps = true; # was false — caused "Permission denied" on all external taps
   };
 
   homebrew = {
     enable = true;
-    onActivation.cleanup = "zap";
+    onActivation = {
+      cleanup = "zap";   # removes anything not declared here
+      autoUpdate = true; # runs `brew update` on each switch
+      upgrade = true;    # runs `brew upgrade` on each switch
+    };
     taps = builtins.attrNames config.nix-homebrew.taps ++ [
       "dopplerhq/cli"
       "fwartner/tap"
@@ -25,24 +29,24 @@
       "render-oss/render"
     ];
 
-    # CLI tools that must stay in Homebrew (tapped, version managers, macOS-specific)
+    # CLI tools that require taps or are not available in nixpkgs
     brews = [
-      "claude-code"
       "dopplerhq/cli/doppler"
       "fwartner/tap/mac-cleanup"
       "gh"
       "jakehilborn/jakehilborn/displayplacer"
-      "node@14"       # legacy, managed by nvm
-      "nvm"           # Node version manager
-      "pyenv"         # Python version manager
+      "nvm"   # Node version manager (node@22 removed — redundant)
+      "pyenv" # Python version manager
       "render-oss/render/render"
     ];
 
-    # GUI apps via casks
+    # GUI apps (.app)
     casks = [
       "1password-cli"
       "blackhole-16ch"
       "claude"
+      "claude-code"  # moved from brews — it's a .app cask, not a formula
+      "discord"
       "flutter"
       "gcloud-cli"
       "ghostty"
@@ -51,6 +55,10 @@
       "lens"
       "ngrok"
       "react-native-debugger"
+      "slack"
+      "spotify"
+      "whatsapp"
+      "wispr-flow"
       "xquartz"
     ];
   };

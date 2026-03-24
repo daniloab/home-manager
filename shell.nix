@@ -63,6 +63,12 @@ let
       echo "  gcoprod -> git co prod"
       echo "  gpsprod -> git push origin"
       echo ""
+      echo "Nix:"
+      echo "  ns      -> darwin-rebuild switch"
+      echo "  nb      -> darwin-rebuild build"
+      echo "  nrb     -> darwin-rebuild rollback"
+      echo "  nup     -> nix flake update"
+      echo ""
       echo "Other:"
       echo "  ca       -> claude --agentic"
       echo "  cstd     -> claude --dangerously-skip-permissions"
@@ -245,7 +251,7 @@ let
       fi
     }
 
-    # ── wt: Git Worktree + tmux session (from fersilva16's nix-darwin gist) ──
+    # ── wt: Git Worktree + tmux session ──
     # Usage:
     #   wt              → fzf pick existing worktree (switches tmux session)
     #   wt name         → create worktree + tmux session, switch to it
@@ -416,7 +422,6 @@ let
             if [ -z "$parent_session" ]; then echo "wtrm: no other session to switch to"; return 1; fi
           fi
           tmux switch-client -t "=$parent_session"
-          # Delay cleanup so we switch first
           if [ "$force" -eq 1 ]; then
             tmux run-shell -b "tmux kill-session -t '=$current_session'; git -C '$main_root' worktree remove --force '$wt_path'; git -C '$main_root' branch -D '$branch' 2>/dev/null"
           else
@@ -467,7 +472,6 @@ in
       export LSCOLORS=ExFxBxDxCxegedabagacad
       export TERM=xterm-256color
       export CLICOLOR=1
-
     '';
   };
 
@@ -484,7 +488,7 @@ in
       # ── OrbStack ──
       source ~/.orbstack/shell/init.zsh 2>/dev/null || :
     '';
-    initExtra = sharedInitExtra + ''
+    initContent = sharedInitExtra + ''
       # ── Zsh-specific ──
       export LC_ALL=en_US.UTF-8
       export LANG=en_US.UTF-8
@@ -494,7 +498,6 @@ in
 
       # ── FZF ──
       source <(fzf --zsh)
-
     '';
   };
 }

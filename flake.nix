@@ -28,7 +28,7 @@
 
   outputs = { nixpkgs, nix-darwin, home-manager, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }:
     {
-      darwinConfigurations."Danilos-MacBook-Pro-2" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."Danilos-MacBook-Pro" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         specialArgs = { inherit homebrew-core homebrew-cask homebrew-bundle; };
         modules = [

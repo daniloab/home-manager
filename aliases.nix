@@ -50,4 +50,10 @@
   # Modern CLI replacements
   ls = "eza -lag";
   cat = "bat";
+
+  # Nix
+  ns  = "darwin-rebuild switch --flake ~/home-manager#Danilos-MacBook-Pro";
+  nb  = "darwin-rebuild build --flake ~/home-manager#Danilos-MacBook-Pro";
+  nrb = "darwin-rebuild rollback";
+  nup = "nix flake update ~/home-manager";
 }

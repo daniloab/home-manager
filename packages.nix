@@ -2,17 +2,17 @@
 
 {
   home.packages = with pkgs; [
-    # Core CLI tools (previously in nix)
+    # Core CLI tools
     ripgrep
     fd
     jq
     fzf
-    git
     bat
     eza
     lazygit
+    # git is managed by git.nix — removed from here
 
-    # Dev tools (migrated from Homebrew)
+    # Dev tools
     circleci-cli
     cloudflared
     cocoapods
@@ -26,7 +26,7 @@
     mongodb-tools
     neovim
     nginx
-    nodejs
+    # nodejs removed — managed by nvm via brew.nix
     pnpm
     php
     phpPackages.composer
@@ -36,7 +36,7 @@
     subversion
     uv
 
-    # Utilities (migrated from Homebrew)
+    # Utilities
     dart
     fluxcd
     ledger
