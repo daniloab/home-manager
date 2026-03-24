@@ -10,11 +10,13 @@ Declarative macOS configuration using [nix-darwin](https://github.com/nix-darwin
 | `darwin.nix` | macOS system settings (Dock, Finder, keyboard, Touch ID sudo) |
 | `home.nix` | Home Manager entry point — imports all user-level modules |
 | `packages.nix` | CLI tools (ripgrep, fd, bat, eza, neovim, pnpm, go, etc.), direnv, zoxide, starship |
-| `brew.nix` | Homebrew taps, formulas (nvm, pyenv, doppler), and casks (Ghostty, Chrome, Slack, etc.) |
+| `brew.nix` | Homebrew taps, formulas (nvm, pyenv, doppler), and casks (1Password, Ghostty, Chrome, Slack, etc.) |
 | `shell.nix` | Zsh/Bash config — env vars, functions (cw, wt, killport, envsource) |
 | `aliases.nix` | Shell aliases shared between zsh and bash |
 | `git.nix` | Git config — user, aliases, credential helpers via gh |
 | `gh.nix` | GitHub CLI config (SSH protocol, pr checkout alias) |
+| `tmux.nix` | Tmux configuration |
+| `lazygit.nix` | Lazygit configuration |
 
 ## Fresh install
 
@@ -117,4 +119,7 @@ sudo nrb  # reverts to the previous generation
   aliases.nix     # shell aliases (shared by zsh + bash)
   git.nix         # git config
   gh.nix          # github cli config
+  tmux.nix        # tmux config
+  lazygit.nix     # lazygit config
+  CLAUDE.md       # conventions and instructions for Claude Code
 ```

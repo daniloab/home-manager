@@ -44,6 +44,7 @@
 
     # GUI apps (.app)
     casks = [
+      "1password"
       "1password-cli"
       "blackhole-16ch"
       "claude"
