@@ -27,6 +27,7 @@
       "jakehilborn/jakehilborn"
       "mongodb/brew"
       "render-oss/render"
+      "schpet/tap"
     ];
 
     # CLI tools that require taps or are not available in nixpkgs
@@ -38,6 +39,7 @@
       "nvm"   # Node version manager (node@22 removed — redundant)
       "pyenv" # Python version manager
       "render-oss/render/render"
+      "schpet/tap/linear"
     ];
 
     # GUI apps (.app)

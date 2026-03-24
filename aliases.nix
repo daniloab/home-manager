@@ -50,6 +50,9 @@
   # Modern CLI replacements
   ls = "eza -lag";
   cat = "bat";
+  lin  = "linear issue view";
+  linl = "linear issue list";
+  lins = "linear issue start";
 
   # Nix
   ns  = "sudo darwin-rebuild switch --flake ~/home-manager#Danilos-MacBook-Pro";
