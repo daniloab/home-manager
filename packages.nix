@@ -25,7 +25,6 @@
     mongodb-tools
     neovim
     nginx
-    # nodejs removed — managed by nvm via brew.nix
     pnpm
     php
     phpPackages.composer
