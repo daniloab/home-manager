@@ -9,8 +9,8 @@ Declarative macOS configuration using [nix-darwin](https://github.com/nix-darwin
 | `flake.nix` | Entry point — pins nixpkgs, nix-darwin, home-manager, and homebrew inputs |
 | `darwin.nix` | macOS system settings (Dock, Finder, keyboard, Touch ID sudo) |
 | `home.nix` | Home Manager entry point — imports all user-level modules |
-| `packages.nix` | CLI tools (ripgrep, fd, bat, eza, neovim, pnpm, go, etc.), direnv, zoxide, starship |
-| `brew.nix` | Homebrew taps, formulas (nvm, pyenv, doppler), and casks (1Password, Ghostty, Chrome, Slack, etc.) |
+| `packages.nix` | CLI tools (ripgrep, fd, bat, eza, neovim, pnpm, go, etc.), direnv, zoxide (`cd` override), starship |
+| `brew.nix` | Homebrew taps, formulas (nvm, pyenv, doppler, supabase), and casks (1Password, Ghostty, Chrome, Slack, etc.) |
 | `shell.nix` | Zsh/Bash config — env vars, functions (cw, wt, killport, envsource) |
 | `aliases.nix` | Shell aliases shared between zsh and bash |
 | `git.nix` | Git config — user, aliases, credential helpers via gh |
