@@ -1,5 +1,37 @@
 { pkgs, ... }:
 
+let
+  vercel = pkgs.stdenv.mkDerivation rec {
+    pname = "vercel";
+    version = "50.38.2";
+
+    nativeBuildInputs = [ pkgs.makeWrapper pkgs.cacert ];
+
+    dontUnpack = true;
+
+    buildPhase = ''
+      export HOME=$TMPDIR
+      export PATH=${pkgs.nodejs}/bin:$PATH
+      export SSL_CERT_FILE=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt
+      export NODE_EXTRA_CA_CERTS=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt
+      ${pkgs.nodejs}/bin/npm install --prefix $TMPDIR/vercel vercel@${version}
+    '';
+
+    installPhase = ''
+      mkdir -p $out/lib $out/bin
+      cp -r $TMPDIR/vercel/node_modules $out/lib/
+      makeWrapper ${pkgs.nodejs}/bin/node $out/bin/vercel \
+        --add-flags "$out/lib/node_modules/vercel/dist/index.js"
+    '';
+
+    meta = with pkgs.lib; {
+      description = "Vercel CLI";
+      homepage = "https://vercel.com";
+      license = licenses.asl20;
+      mainProgram = "vercel";
+    };
+  };
+in
 {
   home.packages = with pkgs; [
     # Core CLI tools
@@ -21,6 +53,7 @@
     k6
     k9s
     kops
+    kubernetes-helm
     mongosh
     mongodb-tools
     neovim
@@ -35,6 +68,7 @@
     uv
 
     # Utilities
+    vercel
     dart
     fluxcd
     ledger

@@ -37,7 +37,7 @@
   mks = "make setup";
 
   # Umbrella
-  umbrella = "lsof -ti:3333 | xargs kill 2>/dev/null; cd ~/umbrella-panel && uv run umbrella &>/dev/null & sleep 0.5 && open http://localhost:3333";
+  umbrella = "lsof -ti:3333 | xargs kill 2>/dev/null; cd ~/projects/umbrella-corp/umbrella-panel && uv run umbrella &>/dev/null & sleep 0.5 && open http://localhost:3333";
 
   # Zsh/shell helpers
   szsh = "source ~/.zshrc";
