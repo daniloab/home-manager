@@ -478,6 +478,15 @@ in
   programs.zsh = {
     enable = true;
     shellAliases = sharedAliases;
+    envExtra = ''
+      # ── direnv for non-interactive shells (Conductor agents, scripts) ──
+      # Interactive shells get the full hook from programs.direnv; this
+      # injects env vars into non-interactive shells too (no precmd hook
+      # available), so `use nix` works without an interactive terminal.
+      if [ -z "$DIRENV_IN_ENVRC" ] && command -v direnv >/dev/null 2>&1; then
+        eval "$(direnv export zsh 2>/dev/null)"
+      fi
+    '';
     profileExtra = ''
       # ── Homebrew ──
       eval "$(/opt/homebrew/bin/brew shellenv)"
