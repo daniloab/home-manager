@@ -44,6 +44,7 @@ in
     httpie
 
     # Dev tools
+    bun	
     circleci-cli
     cloudflared
     cocoapods
@@ -96,7 +97,10 @@ in
     enableBashIntegration = true;
     enableZshIntegration = true;
     nix-direnv.enable = true;
-    config.global.hide_env_diff = true;
+    config = {
+      global.hide_env_diff = true;
+      whitelist.prefix = [ "/Users/daniloassis/conductor/workspaces" ];
+    };
     package = pkgs.direnv.overrideAttrs (old: {
       env = (old.env or {}) // { CGO_ENABLED = "1"; };
     });

@@ -8,6 +8,7 @@
   tsxw = "tsx watch";
 
   # Terminal
+  ghostty = "open -a Ghostty --args --working-directory=$(pwd)";
   term = "open -a Terminal $(pwd)";
 
   # Git
@@ -53,6 +54,10 @@
   lin  = "linear issue view";
   linl = "linear issue list";
   lins = "linear issue start";
+
+  # Kubernetes
+  kclusters = "kubectl config get-contexts";
+  kctx = "kubectl config current-context";
 
   # Nix
   ns  = "sudo darwin-rebuild switch --flake ~/home-manager#Danilos-MacBook-Pro";
