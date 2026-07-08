@@ -72,6 +72,7 @@
       "visual-studio-code"
       "webstorm"
       "whatsapp"
+      "windows-app"
       "wispr-flow"
       "xquartz"
       "zoom"
