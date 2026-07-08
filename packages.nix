@@ -31,6 +31,37 @@ let
       mainProgram = "vercel";
     };
   };
+
+  impeccable = pkgs.stdenv.mkDerivation rec {
+    pname = "impeccable";
+    version = "3.2.0";
+
+    nativeBuildInputs = [ pkgs.makeWrapper pkgs.cacert ];
+
+    dontUnpack = true;
+
+    buildPhase = ''
+      export HOME=$TMPDIR
+      export PATH=${pkgs.nodejs}/bin:$PATH
+      export SSL_CERT_FILE=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt
+      export NODE_EXTRA_CA_CERTS=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt
+      ${pkgs.nodejs}/bin/npm install --prefix $TMPDIR/impeccable impeccable@${version}
+    '';
+
+    installPhase = ''
+      mkdir -p $out/lib/impeccable $out/bin
+      cp -r $TMPDIR/impeccable/node_modules $out/lib/impeccable/
+      makeWrapper ${pkgs.nodejs}/bin/node $out/bin/impeccable \
+        --add-flags "$out/lib/impeccable/node_modules/impeccable/cli/bin/cli.js"
+    '';
+
+    meta = with pkgs.lib; {
+      description = "Design skills, commands, and anti-pattern detection for AI coding agents";
+      homepage = "https://impeccable.style";
+      license = licenses.asl20;
+      mainProgram = "impeccable";
+    };
+  };
 in
 {
   home.packages = with pkgs; [
@@ -69,6 +100,7 @@ in
     uv
 
     # Utilities
+    impeccable
     vercel
     dart
     fluxcd
