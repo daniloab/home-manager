@@ -66,6 +66,7 @@
       "ngrok"
       "notion"
       "orbstack"
+      "postman"
       "react-native-debugger"
       "slack"
       "spotify"
