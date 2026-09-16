@@ -47,11 +47,14 @@
     casks = [
       "1password"
       "1password-cli"
+      "android-studio"
       "blackhole-16ch"
       "claude"
       "claude-code"  # moved from brews — it's a .app cask, not a formula
+      "cloudflare-warp"
       "conductor"
       "cursor"
+      "dbeaver-community"
       "discord"
       "flutter"
       "gcloud-cli"
