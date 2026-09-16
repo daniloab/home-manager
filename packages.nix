@@ -79,6 +79,7 @@ in
     circleci-cli
     cloudflared
     cocoapods
+    codex
     deno
     flyctl
     go
